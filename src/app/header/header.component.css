@@ -1,0 +1,13 @@
+.toolbar-icons {
+    flex: 1 1 auto;
+}
+.toolbar-icon {
+    padding-left: 8px;
+}
+.toolbar-icon1{
+    padding-right: 10px   ;
+}
+div {
+    justify-content: center;
+    text-decoration: dotted;
+}

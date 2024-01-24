@@ -1,0 +1,8 @@
+div {
+    background-color:rgb(43, 36, 179);
+    padding: 10px;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
