@@ -9,11 +9,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { DatePipe} from '@angular/common';
+
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [MatTableModule,MatIconModule,DeleteCategoryDialogComponent,MatButtonModule,RouterModule,FormsModule,MatFormFieldModule],
+  imports: [MatTableModule,MatIconModule,DeleteCategoryDialogComponent,MatButtonModule,RouterModule,FormsModule,MatFormFieldModule,DatePipe],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })

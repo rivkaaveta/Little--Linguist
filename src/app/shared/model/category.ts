@@ -1,14 +1,16 @@
 import { language } from "./language";
+import { TranslatedWord } from "./translatedword";
 import { WordCategory } from "./word-category";
 
-export class Category implements WordCategory {
+export class Category implements WordCategory { 
     name: string;
     identifier: number;
     lastChangeDate: string;
     sourceLanguage: language=language.Hebrew
     targetLanguage: language=language.English
     wordPairs: Map<string, string>;
-  
+    lastUpdateDate = new Date();
+    words : TranslatedWord[] = [];
     constructor(
       name: string,
       identifier: number,

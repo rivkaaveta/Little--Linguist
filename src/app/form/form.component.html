@@ -2,13 +2,13 @@
     <div>
     <mat-form-field>
     <mat-label>Name:</mat-label>
-    <input matInput [(ngModel)]="currentCategory.name" name="name" required>
+    <input matInput [(ngModel)]="currentCategory.name" name="name" required >
     </mat-form-field>
     </div>
     <div>
     <mat-form-field>
     <mat-label>Source Language:</mat-label>
-    <input matInput [(ngModel)]="currentCategory.sourceLanguage" sourceLanguage="sourceLanguage"  required #sourceField="ngModel">
+    <input matInput [(ngModel)]="currentCategory.sourceLanguage" sourceLanguage="sourceLanguage"  required #sourceField="ngModel"readonly>
     <mat-error *ngIf="sourceField.invalid">
         Please enter valid word in Hebrew
         </mat-error>
@@ -17,7 +17,7 @@
     <div>
     <mat-form-field>
     <mat-label>Target Language:</mat-label>
-    <input matInput [(ngModel)]="currentCategory.targetLanguage" targetLanguage="targetLanguage"  required #targetField="ngModel">
+    <input matInput [(ngModel)]="currentCategory.targetLanguage" targetLanguage="targetLanguage"  required #targetField="ngModel"readonly>
    <mat-error *ngIf="targetField.invalid">
             Please enter valid word in English
             </mat-error> 
