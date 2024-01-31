@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe} from '@angular/common';
 
 
+
 @Component({
   selector: 'app-categories',
   standalone: true,
@@ -36,6 +37,7 @@ export class CategoriesComponent implements OnInit {
       });
       }}    
 export class category {
-  constructor(public name: string, public score: number,public lastChangeDate: string) {}
+  constructor(public name: string, public score: number,public lastChangeDate: number) {}
 
+ 
 }

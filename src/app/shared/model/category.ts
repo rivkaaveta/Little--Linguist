@@ -1,8 +1,8 @@
 import { language } from "./language";
 import { TranslatedWord } from "./translatedword";
-import { WordCategory } from "./word-category";
 
-export class Category implements WordCategory { 
+
+export class Category { 
     name: string;
     identifier: number;
     lastChangeDate: string;
@@ -14,10 +14,15 @@ export class Category implements WordCategory {
     constructor(
       name: string,
       identifier: number,
+      sourceLanguage : language,
+      targetLanguage : language,
       lastChangeDate: string
+
     ) {
       this.name = name;
       this.identifier = identifier;
+      this.sourceLanguage= sourceLanguage;
+      this.targetLanguage= targetLanguage;
       this.lastChangeDate = lastChangeDate;
       this.wordPairs = new Map<string, string>();
     }

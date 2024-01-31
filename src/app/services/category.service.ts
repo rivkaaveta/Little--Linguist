@@ -8,8 +8,7 @@ export class CategoryService {
 categories = new Map<number, Category>();
 nextId = 0;
 constructor() {
-  this.categories.set(0,new Category("fruits",0,"12/12/23"))
-  this.categories.set(1,new Category("names",1,"12/12/24"))
+  
  }
 list(): Category[] {
  return Array.from(this.categories.values());
