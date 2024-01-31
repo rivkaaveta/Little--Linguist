@@ -41,15 +41,12 @@
         </div>
     </div>
     
-    <div>
-        <button
-            type="submit"
-            mat-raised-button
-            color="primary"
-            [disabled]="registrationForm.invalid || registrationForm.pristine">
-            Save
-        </button>
-    </div>
-</form>
+    <button
+    type="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="registrationForm.invalid || registrationForm.pristine || currentCategory.words.length==0">
+    Save
+      </button>
 
            

@@ -1,8 +1,9 @@
-div {
-    background-color:rgb(43, 36, 179);
-    padding: 10px;
-    text-align: right;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+div{
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.toolbar-icon{
+  flex:1 1 auto;
+}

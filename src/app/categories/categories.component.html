@@ -1,4 +1,5 @@
 <div>
+  <h1>Categories Table:</h1>
   <table mat-table [dataSource]="categories">
   <ng-container matColumnDef="name">
   <th mat-header-cell *matHeaderCellDef> CategoryName </th>
@@ -26,9 +27,8 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  <button mat-raised-button color="warn" routerLink= '/newcategory'>
+  <p><button mat-raised-button color="primary" routerLink= '/newcategory' class="addbt">
     Add
-    </button>
-  
- </div>
+    </button></p>
+ </div>
  
