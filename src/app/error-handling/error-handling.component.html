@@ -1,0 +1,15 @@
+<div>
+    <mat-form-field>
+    <mat-label>Category Index</mat-label>
+    <input matInput [(ngModel)]="categoryIndex">
+    </mat-form-field>
+    <button
+    mat-icon-button
+    [disabled]="!categoryIndex"
+    (click)="getCategoryDataByIndex()">
+    <mat-icon>search</mat-icon>
+    </button>
+   </div>
+   <div>
+   Category name: {{ currentCategoryName }}
+   </div>
