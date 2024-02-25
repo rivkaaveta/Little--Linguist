@@ -49,20 +49,22 @@ list(): Category[] {
   if (!this.getCategory().has(identifier)) {
     throw new Error(
    "Failed to retrieve category by id: " + identifier);
+  }
    let categoriesMap = this.getCategory();
    categoriesMap.delete(identifier);
    this.setCategory(categoriesMap);
   
-  }}
+  }
   update(categories: Category): void {
     if (!this.getCategory().has(categories.identifier)) {
       throw new Error(
-     "Failed to retrieve category by id: " + categories.identifier);
+     "Failed to retrieve category by id: " + categories.identifier)
+    }
     let categoriesMap = this.getCategory();
     categoriesMap.set(categories.identifier, categories);
     this.setCategory(categoriesMap);
    
-    }
+   
   }
     add (categories:Category){
       let newId = this.getNextId();
