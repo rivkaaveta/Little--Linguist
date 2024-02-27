@@ -1,6 +1,14 @@
-<h1> Let's Play </h1>
-<ul>
-    <li *ngFor="let category of categories" >
+<h1>Let's Play</h1>
+<h2>Choose Category:</h2>
+<p><mat-form-field>
+  <mat-label>Category</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let category of categories" [value]="categories.values">
       {{ category.name }}
-    </li>
-  </ul>
+    </mat-option>
+  </mat-select>
+</mat-form-field><br> 
+<button mat-raised-button color="primary" routerLink= '/translate'  >
+  Play
+  </button>
+</p>
