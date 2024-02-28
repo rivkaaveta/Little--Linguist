@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path: 'newcategory', component: FormComponent},
     {path: "errors", component: ErrorHandlingComponent},
     {path: "game", component :GameComponent},
-    {path: "translate", component :TranslateComponent},
+    {path: "translate/:identifierstring", component :TranslateComponent},
     {path: "header", component :HeaderComponent},
     {path: "categories", component :CategoriesComponent},
 

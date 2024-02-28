@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Category } from '../shared/model/category';
 import { CategoryService } from '../services/category.service';
+import { language } from '../shared/model/language';
 @Component({
   selector: 'app-translate',
   standalone: true,
@@ -13,14 +14,16 @@ import { CategoryService } from '../services/category.service';
   styleUrl: './translate.component.css'
 })
 export class TranslateComponent implements OnInit {
-  @Input()identifier?: number;
-  categories: Category[] = [];
-  constructor(private categoryService: CategoryService) {
-    
-  }
+  @Input()identifierstring?: string;
+  currentCategory: Category = new Category("Bin",4,language.Hebrew,language.English,new Date())
+  constructor(private categoryService: CategoryService) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+    if (this.identifierstring) {
+    let identifier:number = parseInt(this.identifierstring);
+
+      this.currentCategory = this.categoryService.get(identifier);
 
 }
+}
 
+}

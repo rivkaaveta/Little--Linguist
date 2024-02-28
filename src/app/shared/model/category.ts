@@ -5,7 +5,7 @@ import { TranslatedWord } from "./translatedword";
 export class Category { 
     name: string;
     identifier: number;
-    lastChangeDate: string;
+    lastChangeDate: Date;
     sourceLanguage: language=language.Hebrew
     targetLanguage: language=language.English
     wordPairs: Map<string, string>;
@@ -16,7 +16,7 @@ export class Category {
       identifier: number,
       sourceLanguage : language,
       targetLanguage : language,
-      lastChangeDate: string
+      lastChangeDate: Date
 
     ) {
       this.name = name;

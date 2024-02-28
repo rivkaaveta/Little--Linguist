@@ -37,7 +37,7 @@ export class CategoriesComponent implements OnInit {
       });
       }}    
 export class category {
-  constructor(public name: string, public score: number,public lastChangeDate: number) {}
+  constructor(public name: string, public score: number,public lastChangeDate: Date) {}
 
  
 }

@@ -28,6 +28,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './game.component.css',
 })
 export class GameComponent implements OnInit {
+  selected = 0
   @Input() name?: string;
   constructor(
     private categoryService: CategoryService,
@@ -38,5 +39,5 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.categories = this.categoryService.list();
   }
-  onCategoryClick() {}
+
 }

@@ -21,7 +21,7 @@ import { language } from "../shared/model/language";
 })
 export class FormComponent implements OnInit{
   @Input() identifierString?:string;
-  currentCategory: Category = new Category('',0,language.English,language.Hebrew,'')
+  currentCategory: Category = new Category('',0,language.English,language.Hebrew,new Date())
 wordsField: any;
   constructor(private categoryService: CategoryService, private router: Router) {}
   ngOnInit(): void {
