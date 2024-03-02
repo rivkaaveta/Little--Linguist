@@ -6,10 +6,14 @@ import { RouterLink } from '@angular/router';
 import { Category } from '../shared/model/category';
 import { CategoryService } from '../services/category.service';
 import { language } from '../shared/model/language';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'app-translate',
   standalone: true,
-  imports: [MatInputModule,MatFormFieldModule,FormsModule,RouterLink],
+  imports: [MatInputModule,MatFormFieldModule,FormsModule,RouterLink,CommonModule,MatButtonModule,MatIconModule],
   templateUrl: './translate.component.html',
   styleUrl: './translate.component.css'
 })
@@ -22,8 +26,10 @@ export class TranslateComponent implements OnInit {
     let identifier:number = parseInt(this.identifierstring);
 
       this.currentCategory = this.categoryService.get(identifier);
+      
 
 }
 }
+
 
 }

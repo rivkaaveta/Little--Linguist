@@ -1,3 +1,16 @@
-<div>Name : {{ currentCategory!.name }}
+<div> Translate - {{ currentCategory!.name }}
 </div>
-<div></div>
+<div *ngFor="let word of currentCategory.words; index as i" class="words-form">
+    <div>
+    <mat-form-field> 
+    <mat-label>Origin:</mat-label>
+    <input matInput [(ngModel)]="word.sourceLanguage" name="origin-{{i}}" pattern='^[a-zA-Z ]+$' readonly >
+    </mat-form-field>
+    <mat-form-field>
+    <mat-label>Target:</mat-label>
+    <input matInput required>
+    </mat-form-field>
+    <p><button mat-raised-button color="primary"  >
+        Check
+        </button></p>
+
