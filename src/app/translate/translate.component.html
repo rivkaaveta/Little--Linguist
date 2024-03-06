@@ -1,16 +1,36 @@
-<div> Translate - {{ currentCategory!.name }}
-</div>
-<div *ngFor="let word of currentCategory.words; index as i" class="words-form">
-    <div>
-    <mat-form-field> 
-    <mat-label>Origin:</mat-label>
-    <input matInput [(ngModel)]="word.sourceLanguage" name="origin-{{i}}" pattern='^[a-zA-Z ]+$' readonly >
-    </mat-form-field>
-    <mat-form-field>
-    <mat-label>Target:</mat-label>
-    <input matInput required>
-    </mat-form-field>
-    <p><button mat-raised-button color="primary"  >
-        Check
-        </button></p>
+<div>
+  <div class="title">Translate - {{ currentCategory!.name }}</div>
+  <form class="words-form">
+    <div *ngFor="let word of currentCategory.words; index as i">
+      <mat-form-field>
+        <mat-label>Origin:</mat-label>
+        <input
+          matInput
+          [(ngModel)]="word.sourceLanguage"
+          name="origin-{{ i }}"
+          readonly
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Target:</mat-label>
+        <input
+          matInput
+          [(ngModel)]="word.translate"
+          pattern="^[\u0590-\u05FF\s]+$"
+          name="target-{{ i }}"
+        />
+      </mat-form-field>
+      <mat-icon color="primary" *ngIf="this.showResult[i] == true">check</mat-icon>
+      <mat-icon color="warn" *ngIf="this.showResult[i] == false"
+        >clear</mat-icon
+      >
+    </div>
 
+    <p>
+      <button mat-raised-button color="primary" type="submit" (click)="check()">
+        Check
+      </button>
+    </p>
+  </form>
+  <div>{{ message }}</div>
+</div>

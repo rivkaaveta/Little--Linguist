@@ -1,35 +1,69 @@
-import { Component,Input,OnInit } from '@angular/core';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { Category } from '../shared/model/category';
-import { CategoryService } from '../services/category.service';
-import { language } from '../shared/model/language';
 import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { RouterLink } from '@angular/router';
+import { CategoryService } from '../services/category.service';
+import { Category } from '../shared/model/category';
+import { language } from '../shared/model/language';
+import { TranslatedWord } from '../shared/model/translatedword';
+
 
 @Component({
   selector: 'app-translate',
   standalone: true,
-  imports: [MatInputModule,MatFormFieldModule,FormsModule,RouterLink,CommonModule,MatButtonModule,MatIconModule],
+  imports: [
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    RouterLink,
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   templateUrl: './translate.component.html',
-  styleUrl: './translate.component.css'
+  styleUrl: './translate.component.css',
 })
 export class TranslateComponent implements OnInit {
-  @Input()identifierstring?: string;
-  currentCategory: Category = new Category("Bin",4,language.Hebrew,language.English,new Date())
+  showResult: boolean[] = [];
+  message = '';
+
+  @Input() identifierstring?: string;
+  currentCategory: Category = new Category(
+    'Bin',
+    4,
+    language.Hebrew,
+    language.English,
+    new Date()
+  );
   constructor(private categoryService: CategoryService) {}
   ngOnInit(): void {
     if (this.identifierstring) {
-    let identifier:number = parseInt(this.identifierstring);
+      let identifier: number = parseInt(this.identifierstring);
 
       this.currentCategory = this.categoryService.get(identifier);
-      
-
-}
-}
-
-
+    }
+  }
+  
+  check() {
+    let count = 0;
+    for (let word of this.currentCategory.words) {
+      if (word.translate == word.targetLanguage) {
+        this.showResult.push(true);
+        count++;
+      } else {
+        this.showResult.push(false);
+      }
+    }
+    let arrayLenght = this.showResult.length - count;
+    if (this.currentCategory.words.length == count) {
+      this.message = 'Well Done, You Finished!';
+    } else {
+      this.message =
+        'Try Again, You Translated' + " " +arrayLenght + " " + 'out of'+ " " +this.currentCategory.words.length + " " + 'words correctly.';
+    }
+  }
 }

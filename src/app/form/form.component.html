@@ -1,52 +1,80 @@
 <form #registrationForm="ngForm" (ngSubmit)="onSubmitRegistration()">
+  <div>
+    <mat-form-field>
+      <mat-label>Name:</mat-label>
+      <input matInput [(ngModel)]="currentCategory.name" name="name" required />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Source Language:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="currentCategory.sourceLanguage"
+        name="sourceLanguage"
+        readonly
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Target Language:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="currentCategory.targetLanguage"
+        name="targetLanguage"
+        readonly
+      />
+    </mat-form-field>
+  </div>
+  <div class="addTranslatedWord">
+    <h3>Add Words</h3>
+    <button mat-fab type="button" color="primary" (click)="addTranslatedWord()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div
+    *ngFor="let word of currentCategory.words; index as i"
+    class="words-form"
+  >
     <div>
-        <mat-form-field>
-            <mat-label>Name:</mat-label>
-            <input matInput [(ngModel)]="currentCategory.name" name="name" required >
-        </mat-form-field>
+      <mat-form-field>
+        <mat-label>Origin:</mat-label>
+        <input
+          matInput
+          [(ngModel)]="word.sourceLanguage"
+          name="origin-{{ i }}"
+          pattern="^[a-zA-Z ]+$"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Target:</mat-label>
+        <input
+          matInput
+          [(ngModel)]="word.targetLanguage"
+          name="target-{{ i }}"
+          pattern="^[\u0590-\u05FF\s]+$"
+          required
+        />
+      </mat-form-field>
+      <button type="button" mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
     </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Source Language:</mat-label>
-            <input matInput [(ngModel)]="currentCategory.sourceLanguage" name="sourceLanguage" readonly>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Target Language:</mat-label>
-            <input matInput [(ngModel)]="currentCategory.targetLanguage" name="targetLanguage" readonly>
-       </mat-form-field>
-    </div>
-    <div class="addTranslatedWord">
-        <h3>Add Words</h3>
-        <button mat-fab type="button" color="primary" (click)="addTranslatedWord()">
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
-           
-     
-    <div *ngFor="let word of currentCategory.words; index as i" class="words-form">
-        <div>
-            <mat-form-field>
-                <mat-label>Origin:</mat-label>
-                <input matInput [(ngModel)]="word.sourceLanguage" name="origin-{{i}}" pattern='^[a-zA-Z ]+$' required >
-            </mat-form-field> 
-            <mat-form-field>
-                <mat-label>Target:</mat-label>
-                <input matInput [(ngModel)]="word.targetLanguage" name="target-{{i}}" pattern='^[\u0590-\u05FF\s]+$' required>
-            </mat-form-field>
-            <button type="button" mat-icon-button>
-                <mat-icon>delete</mat-icon>
-            </button>
-        </div>
-    </div>
-    
-    <button
+  </div>
+
+  <button
     type="submit"
     mat-raised-button
     color="primary"
-    [disabled]="registrationForm.invalid || registrationForm.pristine || currentCategory.words.length==0">
-    Save
-      </button>
-
-           
+    [disabled]="
+      registrationForm.invalid ||
+      registrationForm.pristine ||
+      currentCategory.words.length == 0
+    "
+  >
+    Save       
+  </button>
+</form>

@@ -21,14 +21,16 @@ import { RouterLink } from '@angular/router';
     MatSelectModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule,MatIconModule,MatButtonModule,RouterLink
-
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    RouterLink,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css',
 })
 export class GameComponent implements OnInit {
-  selected = 0
+  selected = 0;
   @Input() name?: string;
   constructor(
     private categoryService: CategoryService,
@@ -39,5 +41,4 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.categories = this.categoryService.list();
   }
-
 }
