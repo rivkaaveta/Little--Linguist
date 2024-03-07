@@ -50,6 +50,7 @@ export class TranslateComponent implements OnInit {
   
   check() {
     let count = 0;
+    this.showResult = []; 
     for (let word of this.currentCategory.words) {
       if (word.translate == word.targetLanguage) {
         this.showResult.push(true);
@@ -58,12 +59,13 @@ export class TranslateComponent implements OnInit {
         this.showResult.push(false);
       }
     }
-    let arrayLenght = this.showResult.length - count;
-    if (this.currentCategory.words.length == count) {
-      this.message = 'Well Done, You Finished!';
+    let incorrectCount = this.currentCategory.words.length - count;
+    if (count == this.currentCategory.words.length) {
+      this.message ="Well Done, You Finished!";
     } else {
-      this.message =
-        'Try Again, You Translated' + " " +arrayLenght + " " + 'out of'+ " " +this.currentCategory.words.length + " " + 'words correctly.';
-    }
-  }
-}
+      this.message = "Try Again, You Translated" + "" + incorrectCount + "" + "out of" + " " + "" + this.currentCategory.words.length +"" +""+ "words correctly";
+    }
+
+      }
+    }
+  
